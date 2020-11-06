@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
 
+        setTitle("Direnç Hesaplama");
+        
         band1_adaptoru1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, band1);
         band1_adaptoru2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, band2);
         band1_adaptoru3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, band3);
