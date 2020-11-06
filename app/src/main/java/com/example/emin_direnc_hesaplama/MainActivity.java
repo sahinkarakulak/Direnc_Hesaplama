@@ -2,6 +2,7 @@ package com.example.emin_direnc_hesaplama;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     String item1, item2, item3, item4;
 
     long sayi1, sayi2, sayi3, sayi4;
+    float sayi5;
 
     private String[] band1 = {"1 Kahverengi", "2 Kırmızı", "3 Turuncu", "4 Sarı", "5 Yeşil", "6 Mavi", "7 Mor", "8 Gri", "9 Beyaz"};
     private String[] band2 = {"0 Siyah", "1 Kahverengi", "2 Kırmızı", "3 Turuncu", "4 Sarı", "5 Yeşil", "6 Mavi", "7 Mor", "8 Gri", "9 Beyaz"};
@@ -300,61 +302,101 @@ public class MainActivity extends AppCompatActivity {
                 if (adapterView.getSelectedItem().toString().equals(band4[0])) {
                     b4_kahverengi = 1;
                     hesapla4(b4_kahverengi);
-                    hesaplaCarparak();
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        hesaplaBolerek();
+                    }else
+                        hesaplaCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[1])) {
                     b4_kırmızı = 2;
                     hesapla4(b4_kırmızı);
-                    hesaplaCarparak();
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        hesaplaBolerek();
+                    }else
+                        hesaplaCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[2])) {
                     b4_turuncu = 3;
                     hesapla4(b4_turuncu);
-                    hesaplaCarparak();
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        hesaplaBolerek();
+                    }else
+                        hesaplaCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[3])) {
                     b4_sarı = 4;
                     hesapla4(b4_sarı);
-                    hesaplaCarparak();
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        hesaplaBolerek();
+                    }else
+                        hesaplaCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[4])) {
                     b4_yesil = (float) 0.5;
-                    hesapla4((int) b4_yesil);
-                    hesaplaCarparak();
+                    hesapla5(b4_yesil);
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        farkliDurumBolerek();
+                    }else
+                        farkliDurumCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[5])) {
                     b4_mavi = (float) 0.25;
-                    hesapla4((int) b4_mavi);
-                    hesaplaCarparak();
+                    hesapla5(b4_mavi);
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        farkliDurumBolerek();
+                    }else
+                        farkliDurumCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[6])) {
                     b4_mor = (float) 0.10;
-                    hesapla4((int) b4_mor);
-                    hesaplaCarparak();
+                    hesapla5(b4_mor);
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        farkliDurumBolerek();
+                    }else
+                        farkliDurumCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[7])) {
                     b4_gri = (float) 0.05;
-                    hesapla4((int) b4_gri);
-                    hesaplaCarparak();
+                    hesapla5(b4_gri);
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        farkliDurumBolerek();
+                    }else
+                        farkliDurumCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[8])) {
                     b4_altın = 5;
                     hesapla4(b4_altın);
-                    hesaplaCarparak();
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        hesaplaBolerek();
+                    }else
+                        hesaplaCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[9])) {
                     b4_gumus = 10;
                     hesapla4(b4_gumus);
-                    hesaplaCarparak();
+
+                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+                        hesaplaBolerek();
+                    }else
+                        hesaplaCarparak();
                 }
 
                 item4 = adapterView.getItemAtPosition(i).toString();
@@ -368,14 +410,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     public void hesaplaCarparak() {
         long hesaplama_islemi = (sayi1 + sayi2) * sayi3;
         txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi4);
     }
 
+    @SuppressLint("SetTextI18n")
     public void hesaplaBolerek() {
         long hesaplama_islemi = (sayi1 + sayi2) / sayi3;
         txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi4);
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void farkliDurumCarparak() {
+        long hesaplama_islemi = (sayi1 + sayi2) * sayi3;
+        txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi5);
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void farkliDurumBolerek() {
+        long hesaplama_islemi = (sayi1 + sayi2) / sayi3;
+        txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi5);
     }
 
     public void hesapla1(int deger1) {
@@ -392,6 +448,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void hesapla4(int deger4) {
         sayi4 = deger4;
+    }
+
+    public void hesapla5(float deger5){
+        sayi5 = deger5;
     }
 
 }
