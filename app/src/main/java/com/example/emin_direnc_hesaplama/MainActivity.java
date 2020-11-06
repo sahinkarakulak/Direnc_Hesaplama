@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         setTitle("Direnç Hesaplama");
-        
+
         band1_adaptoru1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, band1);
         band1_adaptoru2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, band2);
         band1_adaptoru3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, band3);
@@ -168,19 +168,19 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band2[5])) {
-                    b2_yesil = 4;
+                    b2_yesil = 5;
                     hesapla2(b2_yesil);
                     hesaplaCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band2[6])) {
-                    b2_mavi = 5;
+                    b2_mavi = 6;
                     hesapla2(b2_mavi);
                     hesaplaCarparak();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band2[7])) {
-                    b2_mor = 6;
+                    b2_mor = 7;
                     hesapla2(b2_mor);
                     hesaplaCarparak();
                 }
