@@ -369,12 +369,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hesaplaCarparak() {
-        double hesaplama_islemi = (sayi1 + sayi2) * sayi3;
+        long hesaplama_islemi = (sayi1 + sayi2) * sayi3;
         txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi4);
     }
 
     public void hesaplaBolerek() {
-        double hesaplama_islemi = (sayi1 + sayi2) / sayi3;
+        long hesaplama_islemi = (sayi1 + sayi2) / sayi3;
         txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi4);
     }
 
