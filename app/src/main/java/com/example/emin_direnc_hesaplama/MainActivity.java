@@ -340,43 +340,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[4])) {
-                    b4_yesil = (float) 0.5;
+                    b4_yesil = (float) 0.50;
                     hesapla5(b4_yesil);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        farkliDurumBolerek();
-                    }else
-                        farkliDurumCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[5])) {
                     b4_mavi = (float) 0.25;
                     hesapla5(b4_mavi);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        farkliDurumBolerek();
-                    }else
-                        farkliDurumCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[6])) {
                     b4_mor = (float) 0.10;
                     hesapla5(b4_mor);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        farkliDurumBolerek();
-                    }else
-                        farkliDurumCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[7])) {
                     b4_gri = (float) 0.05;
                     hesapla5(b4_gri);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        farkliDurumBolerek();
-                    }else
-                        farkliDurumCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[8])) {
@@ -432,6 +416,13 @@ public class MainActivity extends AppCompatActivity {
     public void farkliDurumBolerek() {
         long hesaplama_islemi = (sayi1 + sayi2) / sayi3;
         txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi5);
+    }
+
+    public void islemX(){
+        if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+            farkliDurumBolerek();
+        }else
+            farkliDurumCarparak();
     }
 
     public void hesapla1(int deger1) {
