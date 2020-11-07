@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     String item1, item2, item3, item4;
 
-    long sayi1, sayi2, sayi3, sayi4;
-    float sayi5;
+    long sayi1, sayi2, sayi3;
+    String sayi4;
 
     private String[] band1 = {"1 Kahverengi", "2 Kırmızı", "3 Turuncu", "4 Sarı", "5 Yeşil", "6 Mavi", "7 Mor", "8 Gri", "9 Beyaz"};
     private String[] band2 = {"0 Siyah", "1 Kahverengi", "2 Kırmızı", "3 Turuncu", "4 Sarı", "5 Yeşil", "6 Mavi", "7 Mor", "8 Gri", "9 Beyaz"};
@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
     int b1_kahverengi, b1_kırmızı, b1_turuncu, b1_sarı, b1_yesil, b1_mavi, b1_mor, b1_gri, b1_beyaz;
     int b2_siyah, b2_kahverengi, b2_kırmızı, b2_turuncu, b2_sarı, b2_yesil, b2_mavi, b2_mor, b2_gri, b2_beyaz;
     int b3_siyah, b3_kahverengi, b3_kırmızı, b3_turuncu, b3_sarı, b3_yesil, b3_mavi, b3_mor, b3_gri, b3_beyaz, b3_altın, b3_gumus;
-    float b4_yesil, b4_mavi, b4_mor, b4_gri;
-    int b4_kahverengi = 1, b4_kırmızı = 2, b4_turuncu = 3, b4_sarı = 4, b4_altın = 5, b4_gumus = 10;
+    String b4_kahverengi, b4_kırmızı, b4_turuncu, b4_sarı, b4_yesil, b4_mavi, b4_mor, b4_gri, b4_altın, b4_gumus;
 
     private void init() {
         spinner1 = findViewById(R.id.spinner1);
@@ -300,87 +299,63 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 if (adapterView.getSelectedItem().toString().equals(band4[0])) {
-                    b4_kahverengi = 1;
+                    b4_kahverengi = "1";
                     hesapla4(b4_kahverengi);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        hesaplaBolerek();
-                    }else
-                        hesaplaCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[1])) {
-                    b4_kırmızı = 2;
+                    b4_kırmızı = "2";
                     hesapla4(b4_kırmızı);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        hesaplaBolerek();
-                    }else
-                        hesaplaCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[2])) {
-                    b4_turuncu = 3;
+                    b4_turuncu = "3";
                     hesapla4(b4_turuncu);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        hesaplaBolerek();
-                    }else
-                        hesaplaCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[3])) {
-                    b4_sarı = 4;
+                    b4_sarı = "4";
                     hesapla4(b4_sarı);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        hesaplaBolerek();
-                    }else
-                        hesaplaCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[4])) {
-                    b4_yesil = (float) 0.50;
-                    hesapla5(b4_yesil);
+                    b4_yesil = "0.50";
+                    hesapla4(b4_yesil);
                     islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[5])) {
-                    b4_mavi = (float) 0.25;
-                    hesapla5(b4_mavi);
+                    b4_mavi = "0.25";
+                    hesapla4(b4_mavi);
                     islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[6])) {
-                    b4_mor = (float) 0.10;
-                    hesapla5(b4_mor);
+                    b4_mor = "0.10";
+                    hesapla4(b4_mor);
                     islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[7])) {
-                    b4_gri = (float) 0.05;
-                    hesapla5(b4_gri);
+                    b4_gri = "0.05";
+                    hesapla4(b4_gri);
                     islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[8])) {
-                    b4_altın = 5;
+                    b4_altın = "5";
                     hesapla4(b4_altın);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        hesaplaBolerek();
-                    }else
-                        hesaplaCarparak();
+                    islemX();
                 }
 
                 if (adapterView.getSelectedItem().toString().equals(band4[9])) {
-                    b4_gumus = 10;
+                    b4_gumus = "10";
                     hesapla4(b4_gumus);
-
-                    if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-                        hesaplaBolerek();
-                    }else
-                        hesaplaCarparak();
+                    islemX();
                 }
 
                 item4 = adapterView.getItemAtPosition(i).toString();
@@ -406,23 +381,11 @@ public class MainActivity extends AppCompatActivity {
         txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi4);
     }
 
-    @SuppressLint("SetTextI18n")
-    public void farkliDurumCarparak() {
-        long hesaplama_islemi = (sayi1 + sayi2) * sayi3;
-        txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi5);
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void farkliDurumBolerek() {
-        long hesaplama_islemi = (sayi1 + sayi2) / sayi3;
-        txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi5);
-    }
-
     public void islemX(){
         if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
-            farkliDurumBolerek();
+            hesaplaBolerek();
         }else
-            farkliDurumCarparak();
+            hesaplaCarparak();
     }
 
     public void hesapla1(int deger1) {
@@ -437,12 +400,8 @@ public class MainActivity extends AppCompatActivity {
         sayi3 = deger3;
     }
 
-    public void hesapla4(int deger4) {
+    public void hesapla4(String deger4) {
         sayi4 = deger4;
-    }
-
-    public void hesapla5(float deger5){
-        sayi5 = deger5;
     }
 
 }
