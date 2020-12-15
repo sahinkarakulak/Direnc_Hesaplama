@@ -1,8 +1,7 @@
-package com.example.emin_direnc_hesaplama;
+package com.example.direnchesaplama;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -369,23 +368,64 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @SuppressLint("SetTextI18n")
     public void hesaplaCarparak() {
         long hesaplama_islemi = (sayi1 + sayi2) * sayi3;
-        txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi4);
+        txt_sonuc.setText("Sonuç : " + harflendirmeIslemi(hesaplama_islemi) + " Ω± %" + sayi4);
     }
 
-    @SuppressLint("SetTextI18n")
     public void hesaplaBolerek() {
         long hesaplama_islemi = (sayi1 + sayi2) / sayi3;
-        txt_sonuc.setText("Sonuç : " + hesaplama_islemi + " Ω± %" + sayi4);
+        txt_sonuc.setText("Sonuç : " + harflendirmeIslemi(hesaplama_islemi) + " Ω± %" + sayi4);
     }
 
-    public void islemX(){
-        if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")){
+    public void islemX() {
+        if (item3.equals("/10 Altın") || item3.equals("/100 Gümüş")) {
             hesaplaBolerek();
-        }else
+        } else
             hesaplaCarparak();
+    }
+
+    public String harflendirmeIslemi(long deger1) {
+        String sayiDonustur = String.valueOf(deger1);
+        int karakterSayisi = sayiDonustur.length();
+        if (karakterSayisi < 4) {
+            //bişi olmasın. Değeri aynen döndür
+            return sayiDonustur;
+        } else if (karakterSayisi < 5) {
+            //(0,1)bin
+            if (!sayiDonustur.substring(1, 2).equals("0")) {
+                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "Bin";
+            } else
+                return sayiDonustur.substring(0, 1) + "Bin";
+        } else if (karakterSayisi < 6) {
+            //(0,2)bin
+            return sayiDonustur.substring(0, 2) + "Bin";
+        } else if (karakterSayisi < 7) {
+            //(0,3)bin
+            return sayiDonustur.substring(0, 3) + "Bin";
+        } else if (karakterSayisi < 8) {
+            //(0,1)milyon
+            if (!sayiDonustur.substring(1, 2).equals("0")) {
+                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "Milyon";
+            } else
+                return sayiDonustur.substring(0, 1) + "Milyon";
+        } else if (karakterSayisi < 9) {
+            //(0,2)milyon
+            return sayiDonustur.substring(0, 2) + "Milyon";
+        } else if (karakterSayisi < 10) {
+            //(0,3)milyon
+            return sayiDonustur.substring(0, 3) + "Milyon";
+        } else if (karakterSayisi < 11) {
+            //(0,1)milyar
+            if (!sayiDonustur.substring(1, 2).equals("0")) {
+                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "Milyar";
+            } else
+                return sayiDonustur.substring(0, 1) + "Milyar";
+        } else if (karakterSayisi < 12) {
+            //(0,2)milyar
+            return sayiDonustur.substring(0, 2) + "Milyar";
+        }
+        return sayiDonustur;
     }
 
     public void hesapla1(int deger1) {
@@ -403,5 +443,4 @@ public class MainActivity extends AppCompatActivity {
     public void hesapla4(String deger4) {
         sayi4 = deger4;
     }
-
 }
