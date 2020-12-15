@@ -394,36 +394,36 @@ public class MainActivity extends AppCompatActivity {
         } else if (karakterSayisi < 5) {
             //(0,1)bin
             if (!sayiDonustur.substring(1, 2).equals("0")) {
-                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "Bin";
+                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "K";
             } else
-                return sayiDonustur.substring(0, 1) + "Bin";
+                return sayiDonustur.substring(0, 1) + "K";
         } else if (karakterSayisi < 6) {
             //(0,2)bin
-            return sayiDonustur.substring(0, 2) + "Bin";
+            return sayiDonustur.substring(0, 2) + "K";
         } else if (karakterSayisi < 7) {
             //(0,3)bin
-            return sayiDonustur.substring(0, 3) + "Bin";
+            return sayiDonustur.substring(0, 3) + "K";
         } else if (karakterSayisi < 8) {
             //(0,1)milyon
             if (!sayiDonustur.substring(1, 2).equals("0")) {
-                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "Milyon";
+                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "M";
             } else
-                return sayiDonustur.substring(0, 1) + "Milyon";
+                return sayiDonustur.substring(0, 1) + "M";
         } else if (karakterSayisi < 9) {
             //(0,2)milyon
-            return sayiDonustur.substring(0, 2) + "Milyon";
+            return sayiDonustur.substring(0, 2) + "M";
         } else if (karakterSayisi < 10) {
             //(0,3)milyon
-            return sayiDonustur.substring(0, 3) + "Milyon";
+            return sayiDonustur.substring(0, 3) + "M";
         } else if (karakterSayisi < 11) {
             //(0,1)milyar
             if (!sayiDonustur.substring(1, 2).equals("0")) {
-                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "Milyar";
+                return sayiDonustur.substring(0, 1) + "." + sayiDonustur.substring(1, 2) + "G";
             } else
-                return sayiDonustur.substring(0, 1) + "Milyar";
+                return sayiDonustur.substring(0, 1) + "G";
         } else if (karakterSayisi < 12) {
             //(0,2)milyar
-            return sayiDonustur.substring(0, 2) + "Milyar";
+            return sayiDonustur.substring(0, 2) + "G";
         }
         return sayiDonustur;
     }
